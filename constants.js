@@ -6,94 +6,14 @@ const html = htm.bind(React.createElement);
 
 export const GAMES_DATA = [
   {
-    id: '1',
-    title: '2048 Classic',
-    category: 'Puzzle',
-    thumbnail: 'https://picsum.photos/seed/2048/400/300',
-    iframeUrl: 'https://play2048.co/',
-    description: 'Join the numbers and get to the 2048 tile!',
-    rating: 4.8
-  },
-  {
-    id: '2',
-    title: 'Doodle Jump',
-    category: 'Arcade',
-    thumbnail: 'https://picsum.photos/seed/doodle/400/300',
-    iframeUrl: 'https://doodlejump.io/',
-    description: 'Jump your way to the top in this classic arcade experience.',
-    rating: 4.5
-  },
-  {
-    id: '3',
-    title: 'Geometry Dash',
+    id: 'slope-1',
+    title: 'Slope',
     category: 'Action',
-    thumbnail: 'https://picsum.photos/seed/geometry/400/300',
-    iframeUrl: 'https://geometrydash.io/',
-    description: 'Rhythm-based action platforming with challenging levels.',
-    rating: 4.9
-  },
-  {
-    id: '4',
-    title: 'Basketball Stars',
-    category: 'Sports',
-    thumbnail: 'https://picsum.photos/seed/basket/400/300',
-    iframeUrl: 'https://basketballstars.io/',
-    description: 'Show off your skills in the most competitive basketball game.',
-    rating: 4.7
-  },
-  {
-    id: '5',
-    title: 'Moto X3M',
-    category: 'Action',
-    thumbnail: 'https://picsum.photos/seed/moto/400/300',
-    iframeUrl: 'https://motox3m.co/',
-    description: 'Master bike stunts and dodge deadly obstacles.',
-    rating: 4.6
-  },
-  {
-    id: '6',
-    title: 'Cookie Clicker',
-    category: 'Strategy',
-    thumbnail: 'https://picsum.photos/seed/cookie/400/300',
-    iframeUrl: 'https://orteil.dashnet.org/cookieclicker/',
-    description: 'The ultimate idle game. Bake cookies and rule the world.',
-    rating: 4.8
-  },
-  {
-    id: '7',
-    title: 'Cut the Rope',
-    category: 'Puzzle',
-    thumbnail: 'https://picsum.photos/seed/rope/400/300',
-    iframeUrl: 'https://cuttherope.net/',
-    description: 'Feed Om Nom with candy by cutting the right ropes.',
-    rating: 4.4
-  },
-  {
-    id: '8',
-    title: 'Subway Surfers',
-    category: 'Arcade',
-    thumbnail: 'https://picsum.photos/seed/subway/400/300',
-    iframeUrl: 'https://subwaysurfers.com/',
-    description: 'Dash as fast as you can! Dodge the oncoming trains!',
-    rating: 4.7
-  },
-  {
-    id: '9',
-    title: 'Chess Online',
-    category: 'Strategy',
-    thumbnail: 'https://picsum.photos/seed/chess/400/300',
-    iframeUrl: 'https://lichess.org/embed',
-    description: 'Play the game of kings against opponents or bots.',
-    rating: 4.9
-  },
-  {
-    id: '10',
-    title: 'Snake.io',
-    category: 'Arcade',
-    thumbnail: 'https://picsum.photos/seed/snake/400/300',
-    iframeUrl: 'https://snake.io/',
-    description: 'Slither through the arena and grow as large as possible.',
-    rating: 4.3
+    thumbnail: 'https://play-lh.googleusercontent.com/FFrKIqKVpB9HMpaaF0HUc5Sza5W2sM8GFZGfkddU39xPcKCa4BYXQghoWVGlQGpaAA=w526-h296-rw',
+    iframeUrl: 'https://kdata1.com/2020/05/slope/',
+    description: 'Drive your ball down a series of slopes, avoiding obstacles and trying to reach the furthest distance possible in this high-speed neon adventure.',
+    rating: 4.9,
+    themeColor: 'emerald'
   }
 ];
 

@@ -18,8 +18,8 @@ const Header = ({ onSearch, onGoHome }) => {
               <path d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.41 21.94 12.21 22 12 22C11.79 22 11.59 21.94 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.59 2.06 11.79 2 12 2C12.21 2 12.41 2.06 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5Z" />
             </svg>
           </div>
-          <h1 className="font-outfit text-2xl font-bold tracking-tight text-white">
-            NEXUS <span className="text-indigo-400">GAMES</span>
+          <h1 className="font-outfit text-2xl font-bold tracking-tight text-white uppercase">
+            nex <span className="text-indigo-400">unblocked</span>
           </h1>
         </div>
 
@@ -37,10 +37,6 @@ const Header = ({ onSearch, onGoHome }) => {
 
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
           <button onClick=${onGoHome} className="hover:text-indigo-400 transition-colors">Games</button>
-          <a href="#" className="hover:text-indigo-400 transition-colors">Support</a>
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full transition-all active:scale-95 shadow-lg shadow-indigo-600/20">
-            Log In
-          </button>
         </div>
       </div>
     </header>

@@ -69,36 +69,6 @@ const App = () => {
           />
         ` : html`
           <div className="space-y-8 animate-in fade-in duration-700">
-            <div className="relative rounded-3xl overflow-hidden h-[300px] md:h-[400px] bg-slate-800 flex items-center">
-              <img 
-                src="https://picsum.photos/seed/hero/1200/400" 
-                className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
-                alt="Banner"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/40 to-transparent"></div>
-              <div className="relative z-10 px-8 md:px-16 space-y-4 max-w-2xl">
-                <span className="bg-indigo-600/20 text-indigo-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border border-indigo-500/20">
-                  New Update Available
-                </span>
-                <h2 className="text-4xl md:text-6xl font-black font-outfit leading-tight text-white">
-                  PLAY WITHOUT <br />
-                  <span className="text-indigo-500">LIMITS.</span>
-                </h2>
-                <p className="text-slate-300 text-lg font-medium leading-relaxed">
-                  Join millions of players worldwide. Access hundreds of premium 
-                  unblocked games right in your browser.
-                </p>
-                <div className="flex gap-4 pt-4">
-                  <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-3 rounded-xl transition-all shadow-xl shadow-indigo-600/20 active:scale-95">
-                    START PLAYING
-                  </button>
-                  <button className="glass-effect text-white font-bold px-8 py-3 rounded-xl transition-all hover:bg-slate-700/50 ml-4">
-                    DISCOVER
-                  </button>
-                </div>
-              </div>
-            </div>
-
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <h3 className="font-outfit text-2xl font-bold text-white">Browse Games</h3>
