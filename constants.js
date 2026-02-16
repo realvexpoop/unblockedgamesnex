@@ -14,6 +14,16 @@ export const GAMES_DATA = [
     description: 'Drive your ball down a series of slopes, avoiding obstacles and trying to reach the furthest distance possible in this high-speed neon adventure.',
     rating: 4.9,
     themeColor: 'emerald'
+  },
+  {
+    id: 'retro-bowl',
+    title: 'Retro Bowl',
+    category: 'Sports',
+    thumbnail: 'https://www.apple.com/newsroom/images/2024/08/apple-arcade-launches-three-new-games-in-september-including-nfl-retro-bowl-25/article/Apple-Arcade-hero_big.jpg.large.jpg',
+    iframeUrl: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html',
+    description: 'The perfect game for the armchair quarterback. Manage your team, call the plays, and lead your franchise to the ultimate prize in this retro-styled NFL experience.',
+    rating: 4.8,
+    themeColor: 'amber'
   }
 ];
 

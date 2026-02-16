@@ -56,10 +56,10 @@ const App = () => {
   };
 
   return html`
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#121212]">
       <${Header} onSearch=${setSearchQuery} onGoHome=${handleGoHome} />
       
-      <main className="flex-grow max-w-7xl mx-auto px-6 py-8 w-full">
+      <main className="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
         ${selectedGame ? html`
           <${GamePlayer} 
             game=${selectedGame} 
@@ -68,17 +68,22 @@ const App = () => {
             onToggleFavorite=${(g) => toggleFavorite(null, g)}
           />
         ` : html`
-          <div className="space-y-8 animate-in fade-in duration-700">
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h3 className="font-outfit text-2xl font-bold text-white">Browse Games</h3>
-                <span className="text-slate-500 text-sm font-medium">${filteredGames.length} Games Found</span>
+          <div className="space-y-12 animate-in fade-in duration-700">
+            <div id="browse-section" className="space-y-8">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                  <h3 className="font-outfit text-4xl font-black text-white uppercase tracking-tighter">Explore Library</h3>
+                  <p className="text-zinc-500 font-bold uppercase text-xs tracking-[0.2em] mt-1">Directly in your browser</p>
+                </div>
+                <span className="bg-zinc-800/50 text-zinc-400 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest border border-zinc-700/50">
+                  ${filteredGames.length} Titles Available
+                </span>
               </div>
               
               <${CategoryBar} selected=${category} onSelect=${setCategory} />
 
               ${filteredGames.length > 0 ? html`
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                   ${filteredGames.map((game) => html`
                     <${GameCard} 
                       key=${game.id} 
@@ -90,17 +95,17 @@ const App = () => {
                   `)}
                 </div>
               ` : html`
-                <div className="py-20 flex flex-col items-center text-center">
-                  <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mb-4 text-slate-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <div className="py-24 flex flex-col items-center text-center">
+                  <div className="w-24 h-24 bg-zinc-800/50 rounded-full flex items-center justify-center mb-6 text-zinc-600 border border-zinc-700/50">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                   </div>
-                  <h4 className="text-xl font-bold text-white mb-2">No games found</h4>
-                  <p className="text-slate-500 max-w-xs">We couldn't find any games matching your current filter or search criteria.</p>
+                  <h4 className="text-2xl font-black text-white mb-2 uppercase tracking-tight">Game Not Found</h4>
+                  <p className="text-zinc-500 max-w-xs font-medium">We couldn't find any games matching those filters.</p>
                   <button 
                     onClick=${() => {setCategory('All'); setSearchQuery('');}}
-                    className="mt-6 text-indigo-400 font-bold hover:text-indigo-300 transition-colors"
+                    className="mt-8 bg-indigo-600/10 text-indigo-400 px-6 py-3 rounded-xl font-black uppercase tracking-widest text-xs hover:bg-indigo-600/20 transition-all"
                   >
-                    Clear all filters
+                    Reset Library
                   </button>
                 </div>
               `}
