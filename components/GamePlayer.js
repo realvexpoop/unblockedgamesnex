@@ -9,6 +9,7 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const isEmerald = game.themeColor === 'emerald';
   const isAmber = game.themeColor === 'amber';
+  const isViolet = game.themeColor === 'violet';
 
   const toggleFullScreen = () => {
     const iframe = document.getElementById('fr');
@@ -42,6 +43,11 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
     frameBorderClass = 'border-amber-500/50 shadow-amber-500/10';
     titleColorClass = 'text-amber-400';
     infoBorderClass = 'border-amber-500/30';
+  } else if (isViolet) {
+    themeBtnClass = 'bg-violet-500 hover:bg-violet-600 shadow-violet-500/30';
+    frameBorderClass = 'border-violet-500/50 shadow-violet-500/10';
+    titleColorClass = 'text-violet-400';
+    infoBorderClass = 'border-violet-500/30';
   }
 
   return html`
@@ -106,8 +112,10 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
         </p>
         <div className="flex flex-wrap gap-2">
           ${['Unblocked', game.category, 'Multiplayer', 'Web', 'nex'].map(tag => {
-            const isActiveTag = (isEmerald && tag === game.category) || (isAmber && tag === game.category);
-            const activeTagClass = isEmerald ? 'border-emerald-500/50 text-emerald-400 bg-emerald-500/5' : 'border-amber-500/50 text-amber-400 bg-amber-500/5';
+            const isActiveTag = (isEmerald && tag === game.category) || (isAmber && tag === game.category) || (isViolet && tag === game.category);
+            const activeTagClass = isEmerald ? 'border-emerald-500/50 text-emerald-400 bg-emerald-500/5' : 
+                                   isAmber ? 'border-amber-500/50 text-amber-400 bg-amber-500/5' :
+                                   'border-violet-500/50 text-violet-400 bg-violet-500/5';
             
             return html`
               <span key=${tag} className=${`px-3 py-1 bg-slate-800 text-slate-400 rounded-lg text-[10px] font-black uppercase tracking-widest border ${isActiveTag ? activeTagClass : 'border-slate-700'}`}>

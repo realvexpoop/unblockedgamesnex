@@ -24,6 +24,16 @@ export const GAMES_DATA = [
     description: 'The perfect game for the armchair quarterback. Manage your team, call the plays, and lead your franchise to the ultimate prize in this retro-styled NFL experience.',
     rating: 4.8,
     themeColor: 'amber'
+  },
+  {
+    id: 'block-blast',
+    title: 'Block Blast',
+    category: 'Puzzle',
+    thumbnail: 'https://play-lh.googleusercontent.com/83p545A7D2S6T7M-fG8I_J-k9T6V-u4B8v0H-Z-X=w526-h296-rw',
+    iframeUrl: 'https://d11jzht7mj96rr.cloudfront.net/games/2024/unity3/block-blast/index-gg.html',
+    description: 'An addictive block puzzle game that challenges your spatial logic. Fill rows and columns with colorful blocks to clear them and score big in this endless puzzle experience.',
+    rating: 4.7,
+    themeColor: 'indigo'
   }
 ];
 

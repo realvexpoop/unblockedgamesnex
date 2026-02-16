@@ -8,6 +8,7 @@ const html = htm.bind(React.createElement);
 const GameCard = ({ game, isFavorite, onSelect, onToggleFavorite }) => {
   const isEmerald = game.themeColor === 'emerald';
   const isAmber = game.themeColor === 'amber';
+  const isViolet = game.themeColor === 'violet';
   
   let tagColorClass = 'bg-indigo-600';
   let borderHoverClass = 'hover:border-indigo-500/50';
@@ -27,6 +28,12 @@ const GameCard = ({ game, isFavorite, onSelect, onToggleFavorite }) => {
     shadowHoverClass = 'hover:shadow-amber-500/20';
     textHoverClass = 'group-hover:text-amber-400';
     btnHoverClass = 'hover:bg-amber-500 shadow-amber-500/20';
+  } else if (isViolet) {
+    tagColorClass = 'bg-violet-500 shadow-lg shadow-violet-500/40';
+    borderHoverClass = 'hover:border-violet-500';
+    shadowHoverClass = 'hover:shadow-violet-500/20';
+    textHoverClass = 'group-hover:text-violet-400';
+    btnHoverClass = 'hover:bg-violet-500 shadow-violet-500/20';
   }
 
   return html`
