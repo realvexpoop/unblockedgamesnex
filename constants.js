@@ -10,12 +10,12 @@ export const GAMES_DATA = [
     title: 'Slope',
     category: 'Action',
     thumbnail: 'https://play-lh.googleusercontent.com/FFrKIqKVpB9HMpaaF0HUc5Sza5W2sM8GFZGfkddU39xPcKCa4BYXQghoWVGlQGpaAA=w526-h296-rw',
-    // Using Google Proxy by default
-    iframeUrl: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/slope/slope.xml',
+    // Using a more direct GitHub Pages link which is generally more stable than the Google Proxy for Unity games
+    iframeUrl: 'https://math-games-unblocked.github.io/slope/',
     mirrors: [
-      { name: 'Google Server (Best)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/slope/slope.xml' },
-      { name: 'Mirror 1', url: 'https://kdata1.com/2020/05/slope/' },
-      { name: 'Mirror 2', url: 'https://slopegame.online/slope.embed' }
+      { name: 'Server 1 (Primary)', url: 'https://math-games-unblocked.github.io/slope/' },
+      { name: 'Server 2 (Google Gadget)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/slope/slope.xml' },
+      { name: 'Server 3 (External)', url: 'https://slopegame.online/slope.embed' }
     ],
     description: 'Drive your ball down a series of slopes, avoiding obstacles and trying to reach the furthest distance possible in this high-speed neon adventure.',
     rating: 4.9,
@@ -28,8 +28,8 @@ export const GAMES_DATA = [
     thumbnail: 'https://www.apple.com/newsroom/images/2024/08/apple-arcade-launches-three-new-games-in-september-including-nfl-retro-bowl-25/article/Apple-Arcade-hero_big.jpg.large.jpg',
     iframeUrl: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html',
     mirrors: [
-      { name: 'Main Server', url: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html' },
-      { name: 'Mirror 1', url: 'https://retrobowl.me/game/index.html' }
+      { name: 'Server 1 (High Speed)', url: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html' },
+      { name: 'Server 2 (GitHub Mirror)', url: 'https://cdn.jsdelivr.net/gh/677061/retro-bowl@main/index.html' }
     ],
     description: 'The perfect game for the armchair quarterback. Manage your team, call the plays, and lead your franchise to the ultimate prize in this retro-styled NFL experience.',
     rating: 4.8,
@@ -40,10 +40,10 @@ export const GAMES_DATA = [
     title: 'Block Blast',
     category: 'Puzzle',
     thumbnail: 'https://play-lh.googleusercontent.com/83p545A7D2S6T7M-fG8I_J-k9T6V-u4B8v0H-Z-X=w526-h296-rw',
-    iframeUrl: 'https://d11jzht7mj96rr.cloudfront.net/games/2024/unity3/block-blast/index-gg.html',
+    iframeUrl: 'https://block-blast.github.io/',
     mirrors: [
-      { name: 'High-Speed', url: 'https://d11jzht7mj96rr.cloudfront.net/games/2024/unity3/block-blast/index-gg.html' },
-      { name: 'Static Mirror', url: 'https://block-blast.github.io/' }
+      { name: 'Server 1 (GitHub)', url: 'https://block-blast.github.io/' },
+      { name: 'Server 2 (Alternative)', url: 'https://d11jzht7mj96rr.cloudfront.net/games/2024/unity3/block-blast/index-gg.html' }
     ],
     description: 'An addictive block puzzle game that challenges your spatial logic. Fill rows and columns with colorful blocks to clear them and score big in this endless puzzle experience.',
     rating: 4.7,
@@ -66,5 +66,8 @@ export const ICONS = {
   `,
   Back: () => html`
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+  `,
+  Refresh: () => html`
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
   `
 };
