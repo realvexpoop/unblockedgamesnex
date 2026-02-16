@@ -10,7 +10,13 @@ export const GAMES_DATA = [
     title: 'Slope',
     category: 'Action',
     thumbnail: 'https://play-lh.googleusercontent.com/FFrKIqKVpB9HMpaaF0HUc5Sza5W2sM8GFZGfkddU39xPcKCa4BYXQghoWVGlQGpaAA=w526-h296-rw',
-    iframeUrl: 'https://kdata1.com/2020/05/slope/',
+    // Using Google Proxy by default
+    iframeUrl: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/slope/slope.xml',
+    mirrors: [
+      { name: 'Google Server (Best)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/slope/slope.xml' },
+      { name: 'Mirror 1', url: 'https://kdata1.com/2020/05/slope/' },
+      { name: 'Mirror 2', url: 'https://slopegame.online/slope.embed' }
+    ],
     description: 'Drive your ball down a series of slopes, avoiding obstacles and trying to reach the furthest distance possible in this high-speed neon adventure.',
     rating: 4.9,
     themeColor: 'emerald'
@@ -21,6 +27,10 @@ export const GAMES_DATA = [
     category: 'Sports',
     thumbnail: 'https://www.apple.com/newsroom/images/2024/08/apple-arcade-launches-three-new-games-in-september-including-nfl-retro-bowl-25/article/Apple-Arcade-hero_big.jpg.large.jpg',
     iframeUrl: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html',
+    mirrors: [
+      { name: 'Main Server', url: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html' },
+      { name: 'Mirror 1', url: 'https://retrobowl.me/game/index.html' }
+    ],
     description: 'The perfect game for the armchair quarterback. Manage your team, call the plays, and lead your franchise to the ultimate prize in this retro-styled NFL experience.',
     rating: 4.8,
     themeColor: 'amber'
@@ -31,6 +41,10 @@ export const GAMES_DATA = [
     category: 'Puzzle',
     thumbnail: 'https://play-lh.googleusercontent.com/83p545A7D2S6T7M-fG8I_J-k9T6V-u4B8v0H-Z-X=w526-h296-rw',
     iframeUrl: 'https://d11jzht7mj96rr.cloudfront.net/games/2024/unity3/block-blast/index-gg.html',
+    mirrors: [
+      { name: 'High-Speed', url: 'https://d11jzht7mj96rr.cloudfront.net/games/2024/unity3/block-blast/index-gg.html' },
+      { name: 'Static Mirror', url: 'https://block-blast.github.io/' }
+    ],
     description: 'An addictive block puzzle game that challenges your spatial logic. Fill rows and columns with colorful blocks to clear them and score big in this endless puzzle experience.',
     rating: 4.7,
     themeColor: 'indigo'

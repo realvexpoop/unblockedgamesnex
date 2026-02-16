@@ -5,7 +5,11 @@ import { ICONS } from '../constants.js';
 
 const html = htm.bind(React.createElement);
 
-const Header = ({ onSearch, onGoHome }) => {
+const Header = ({ onSearch, onGoHome, isMasked, onToggleMask }) => {
+  const handlePanic = () => {
+    window.location.href = 'https://classroom.google.com';
+  };
+
   return html`
     <header className="sticky top-0 z-50 glass-effect border-b border-zinc-800/50 px-6 py-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -35,8 +39,26 @@ const Header = ({ onSearch, onGoHome }) => {
           />
         </div>
 
-        <div className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
-          <button onClick=${onGoHome} className="hover:text-white transition-colors uppercase tracking-widest text-[11px] font-black">Games Library</button>
+        <div className="flex items-center gap-3">
+          <button 
+            onClick=${onToggleMask}
+            title="Cloak Tab (Disguise as Google Drive)"
+            className=${`p-2.5 rounded-xl border transition-all ${isMasked ? 'bg-green-500/20 border-green-500 text-green-500' : 'bg-zinc-800/50 border-zinc-700 text-zinc-400 hover:text-white'}`}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+          
+          <button 
+            onClick=${handlePanic}
+            title="Panic Button (Instant Redirect)"
+            className="bg-red-500 hover:bg-red-600 text-white p-2.5 rounded-xl transition-all shadow-lg shadow-red-500/20 active:scale-95"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+
+          <div className="hidden lg:block w-[1px] h-6 bg-zinc-800 mx-1"></div>
+
+          <button onClick=${onGoHome} className="hidden md:block hover:text-white transition-colors uppercase tracking-widest text-[10px] font-black text-zinc-400">Library</button>
         </div>
       </div>
     </header>

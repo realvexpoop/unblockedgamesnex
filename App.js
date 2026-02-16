@@ -15,6 +15,40 @@ const App = () => {
   const [category, setCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [favorites, setFavorites] = useState([]);
+  const [isMasked, setIsMasked] = useState(false);
+
+  // Panic button listener
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Panic key: Backslash or Escape
+      if (e.key === '\\' || e.key === 'Escape') {
+        window.location.href = 'https://classroom.google.com';
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Tab masking logic
+  useEffect(() => {
+    const originalTitle = "nex unblocked | Play Fun Games";
+    const originalFavicon = "/favicon.ico"; // Fallback
+    
+    if (isMasked) {
+      document.title = "Google Drive";
+      let link = document.querySelector("link[rel~='icon']");
+      if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        document.head.appendChild(link);
+      }
+      link.href = "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png";
+    } else {
+      document.title = originalTitle;
+      let link = document.querySelector("link[rel~='icon']");
+      if (link) link.href = originalFavicon;
+    }
+  }, [isMasked]);
 
   useEffect(() => {
     const saved = localStorage.getItem('nexus-favorites');
@@ -57,7 +91,12 @@ const App = () => {
 
   return html`
     <div className="min-h-screen flex flex-col bg-[#121212]">
-      <${Header} onSearch=${setSearchQuery} onGoHome=${handleGoHome} />
+      <${Header} 
+        onSearch=${setSearchQuery} 
+        onGoHome=${handleGoHome} 
+        isMasked=${isMasked} 
+        onToggleMask=${() => setIsMasked(!isMasked)} 
+      />
       
       <main className="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
         ${selectedGame ? html`
@@ -75,9 +114,14 @@ const App = () => {
                   <h3 className="font-outfit text-4xl font-black text-white uppercase tracking-tighter">Explore Library</h3>
                   <p className="text-zinc-500 font-bold uppercase text-xs tracking-[0.2em] mt-1">Directly in your browser</p>
                 </div>
-                <span className="bg-zinc-800/50 text-zinc-400 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest border border-zinc-700/50">
-                  ${filteredGames.length} Titles Available
-                </span>
+                <div className="flex items-center gap-3">
+                   <div className="hidden sm:flex bg-amber-500/10 text-amber-500 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border border-amber-500/20">
+                    Pro Tip: Press "\" to Panic
+                  </div>
+                  <span className="bg-zinc-800/50 text-zinc-400 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest border border-zinc-700/50">
+                    ${filteredGames.length} Titles Available
+                  </span>
+                </div>
               </div>
               
               <${CategoryBar} selected=${category} onSelect=${setCategory} />
