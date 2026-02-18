@@ -6,48 +6,62 @@ const html = htm.bind(React.createElement);
 
 export const GAMES_DATA = [
   {
-    id: 'slope-1',
+    id: 'slope-v3',
     title: 'Slope',
     category: 'Action',
     thumbnail: 'https://play-lh.googleusercontent.com/FFrKIqKVpB9HMpaaF0HUc5Sza5W2sM8GFZGfkddU39xPcKCa4BYXQghoWVGlQGpaAA=w526-h296-rw',
-    // Using a more direct GitHub Pages link which is generally more stable than the Google Proxy for Unity games
-    iframeUrl: 'https://math-games-unblocked.github.io/slope/',
+    // Using an active Google Proxy source
+    iframeUrl: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/bobydob/slope@master/slope.xml',
     mirrors: [
-      { name: 'Server 1 (Primary)', url: 'https://math-games-unblocked.github.io/slope/' },
-      { name: 'Server 2 (Google Gadget)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/slope/slope.xml' },
-      { name: 'Server 3 (External)', url: 'https://slopegame.online/slope.embed' }
+      { name: 'Server 1 (Google Proxy)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/bobydob/slope@master/slope.xml' },
+      { name: 'Server 2 (Static)', url: 'https://kdata1.com/2020/05/slope/' },
+      { name: 'Server 3 (Direct)', url: 'https://slopegame.online/slope.embed' }
     ],
-    description: 'Drive your ball down a series of slopes, avoiding obstacles and trying to reach the furthest distance possible in this high-speed neon adventure.',
+    description: 'The ultimate speed game! Drive a ball down an infinite neon slope. Simple to play, hard to master.',
     rating: 4.9,
     themeColor: 'emerald'
   },
   {
-    id: 'retro-bowl',
-    title: 'Retro Bowl',
-    category: 'Sports',
-    thumbnail: 'https://www.apple.com/newsroom/images/2024/08/apple-arcade-launches-three-new-games-in-september-including-nfl-retro-bowl-25/article/Apple-Arcade-hero_big.jpg.large.jpg',
-    iframeUrl: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html',
+    id: '1v1-lol-v3',
+    title: '1v1.LOL',
+    category: 'Action',
+    thumbnail: 'https://play-lh.googleusercontent.com/vH_fNia99Ias_jU2-DAs9jT4qE7N8X4Y9k-C9f6P=w526-h296-rw',
+    iframeUrl: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1921/id@main/1v1.xml',
     mirrors: [
-      { name: 'Server 1 (High Speed)', url: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html' },
-      { name: 'Server 2 (GitHub Mirror)', url: 'https://cdn.jsdelivr.net/gh/677061/retro-bowl@main/index.html' }
+      { name: 'Server 1 (Stealth)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1921/id@main/1v1.xml' },
+      { name: 'Server 2 (Direct)', url: 'https://1v1.lol' }
     ],
-    description: 'The perfect game for the armchair quarterback. Manage your team, call the plays, and lead your franchise to the ultimate prize in this retro-styled NFL experience.',
+    description: 'Build and shoot in this competitive 3D battle royale. Practice your mechanics and outplay your opponents.',
     rating: 4.8,
-    themeColor: 'amber'
+    themeColor: 'violet'
   },
   {
-    id: 'block-blast',
-    title: 'Block Blast',
-    category: 'Puzzle',
-    thumbnail: 'https://play-lh.googleusercontent.com/83p545A7D2S6T7M-fG8I_J-k9T6V-u4B8v0H-Z-X=w526-h296-rw',
-    iframeUrl: 'https://block-blast.github.io/',
+    id: 'subway-surfers-v3',
+    title: 'Subway Surfers',
+    category: 'Arcade',
+    thumbnail: 'https://play-lh.googleusercontent.com/T0_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2=w526-h296-rw',
+    iframeUrl: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1921/id@main/ss.xml',
     mirrors: [
-      { name: 'Server 1 (GitHub)', url: 'https://block-blast.github.io/' },
-      { name: 'Server 2 (Alternative)', url: 'https://d11jzht7mj96rr.cloudfront.net/games/2024/unity3/block-blast/index-gg.html' }
+      { name: 'Google Server', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1921/id@main/ss.xml' },
+      { name: 'Mirror B', url: 'https://d3ca45s3v70m8n.cloudfront.net/games/subway-surfers/index.html' }
     ],
-    description: 'An addictive block puzzle game that challenges your spatial logic. Fill rows and columns with colorful blocks to clear them and score big in this endless puzzle experience.',
+    description: 'Dash as fast as you can! Dodge the oncoming trains and escape from the grumpy Inspector.',
     rating: 4.7,
-    themeColor: 'indigo'
+    themeColor: 'emerald'
+  },
+  {
+    id: 'retro-bowl-v3',
+    title: 'Retro Bowl',
+    category: 'Sports',
+    thumbnail: 'https://play-lh.googleusercontent.com/6_2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2=w526-h296-rw',
+    iframeUrl: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html',
+    mirrors: [
+      { name: 'Main (High Speed)', url: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html' },
+      { name: 'Mirror (Bypass)', url: 'https://cdn.jsdelivr.net/gh/677061/retro-bowl@main/index.html' }
+    ],
+    description: 'Retro-style American football management. Lead your team to victory in this addictive pixel-art sports sim.',
+    rating: 4.8,
+    themeColor: 'amber'
   }
 ];
 

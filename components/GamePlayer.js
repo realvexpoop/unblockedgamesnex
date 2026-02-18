@@ -9,6 +9,7 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [currentUrl, setCurrentUrl] = useState(game.iframeUrl);
   const [activeMirrorIndex, setActiveMirrorIndex] = useState(0);
+  const [showOverlay, setShowOverlay] = useState(true);
 
   const isEmerald = game.themeColor === 'emerald';
   const isAmber = game.themeColor === 'amber';
@@ -25,7 +26,8 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
 
   const reloadGame = () => {
     const originalUrl = currentUrl;
-    setCurrentUrl(''); // Momentarily clear to force re-render
+    setCurrentUrl(''); 
+    setShowOverlay(true);
     setTimeout(() => setCurrentUrl(originalUrl), 50);
   };
 
@@ -51,6 +53,7 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
     if (game.mirrors && game.mirrors[index]) {
       setCurrentUrl(game.mirrors[index].url);
       setActiveMirrorIndex(index);
+      setShowOverlay(true);
     }
   };
 
@@ -59,8 +62,15 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
       setIsFullScreen(!!document.fullscreenElement);
     };
     document.addEventListener('fullscreenchange', handleFsChange);
-    return () => document.removeEventListener('fullscreenchange', handleFsChange);
-  }, []);
+    
+    // Reset overlay timer when URL changes
+    const timer = setTimeout(() => setShowOverlay(false), 2500);
+    
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFsChange);
+      clearTimeout(timer);
+    };
+  }, [currentUrl]);
 
   let themeBtnClass = 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/30';
   let frameBorderClass = 'border-slate-800 shadow-2xl';
@@ -115,8 +125,25 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
         </div>
       </div>
 
-      <div className=${`relative w-full aspect-video rounded-3xl overflow-hidden border-4 ${frameBorderClass} bg-black group shadow-2xl`}>
-        ${currentUrl && html`
+      <div className=${`relative w-full aspect-video rounded-3xl overflow-hidden border-4 ${frameBorderClass} bg-[#0a0a0a] group shadow-2xl`}>
+        ${showOverlay && html`
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity duration-500">
+            <div className="flex flex-col items-center gap-4">
+              <button 
+                onClick=${() => setShowOverlay(false)}
+                className=${`px-8 py-4 ${accentColorClass} text-white font-black uppercase tracking-widest rounded-2xl shadow-2xl shadow-indigo-500/20 active:scale-95 transition-all animate-pulse`}
+              >
+                INITIALIZE GAME
+              </button>
+              <div className="flex flex-col items-center gap-1">
+                <p className="text-zinc-500 text-[10px] font-black uppercase tracking-[0.2em]">Bypassing School Filter...</p>
+                <p className="text-zinc-600 text-[9px] uppercase">If game fails to load, switch servers below</p>
+              </div>
+            </div>
+          </div>
+        `}
+
+        ${currentUrl ? html`
           <iframe
             id="fr"
             key=${currentUrl}
@@ -130,6 +157,11 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
             title=${game.title}
             sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-pointer-lock"
           />
+        ` : html`
+          <div className="w-full h-full flex flex-col items-center justify-center space-y-4">
+             <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
+             <p className="text-zinc-500 uppercase tracking-widest text-xs font-black">Connecting to Proxy...</p>
+          </div>
         `}
         
         <div className="absolute bottom-6 right-6 flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -162,7 +194,7 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
 
       <div className="flex flex-col md:flex-row gap-4 items-center justify-between glass-effect p-4 rounded-2xl border border-zinc-800/50">
         <div className="flex flex-col md:flex-row md:items-center gap-3 w-full md:w-auto">
-          <span className="text-zinc-500 text-[10px] font-black uppercase tracking-widest px-2">Bypass Servers:</span>
+          <span className="text-zinc-500 text-[10px] font-black uppercase tracking-widest px-2">Mirror Switcher:</span>
           <div className="flex flex-wrap gap-2">
             ${game.mirrors && game.mirrors.map((mirror, idx) => html`
               <button 
@@ -176,36 +208,27 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
           </div>
         </div>
         <div className="flex items-center gap-2 text-zinc-400 text-[10px] font-bold uppercase tracking-widest bg-zinc-900/50 px-3 py-1.5 rounded-lg border border-zinc-800">
-           <span className="text-green-500">●</span> Input Logic Active
+           <span className="text-green-500">●</span> Status: Active
         </div>
       </div>
 
       <div className=${`glass-effect p-8 rounded-3xl border-l-4 ${infoBorderClass}`}>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
           <div className="flex-grow">
-            <h3 className="font-outfit text-xl font-black text-white uppercase mb-2 tracking-wider">Solving "Black Screens"</h3>
+            <h3 className="font-outfit text-xl font-black text-white uppercase mb-2 tracking-wider">Solving 404/Connection Errors</h3>
             <p className="text-slate-300 leading-relaxed font-medium mb-4">
-              If the screen is black, the game engine might be waiting for user interaction or the source link is being blocked.
+              Unblocked links are frequently blocked by schools. If you see a "404 Not Found" or a black screen:
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                <div className="bg-zinc-900/50 p-4 rounded-xl border border-zinc-800">
-                  <p className="text-white text-xs font-black uppercase mb-1">Step 1: Click the Screen</p>
-                  <p className="text-zinc-500 text-[11px]">Many games don't start until you click inside the frame once to enable <strong className="text-indigo-400">Pointer Lock</strong>.</p>
+                  <p className="text-white text-xs font-black uppercase mb-1">Server 1 (Best Choice)</p>
+                  <p className="text-zinc-500 text-[11px]">Server 1 uses <strong className="text-indigo-400">Google Proxy</strong> technology. It hides the game source from filters. If this fails, switch to Server 2 or 3.</p>
                </div>
                <div className="bg-zinc-900/50 p-4 rounded-xl border border-zinc-800">
-                  <p className="text-white text-xs font-black uppercase mb-1">Step 2: Try Server 1</p>
-                  <p className="text-zinc-500 text-[11px]">We updated <strong className="text-indigo-400">Server 1</strong> to a direct GitHub link which fixes initialization errors in games like Slope.</p>
+                  <p className="text-white text-xs font-black uppercase mb-1">Try Cloak Mode</p>
+                  <p className="text-zinc-500 text-[11px]">Clicking <strong className="text-indigo-400">CLOAK MODE</strong> opens the game in a blank browser tab. This is much harder for teachers and admins to track.</p>
                </div>
             </div>
-          </div>
-          <div className="shrink-0 bg-indigo-500/10 border border-indigo-500/20 p-4 rounded-2xl max-w-xs h-fit">
-            <p className="text-indigo-400 text-[10px] font-black uppercase tracking-[0.15em] mb-2 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Input Lockdown
-            </p>
-            <p className="text-zinc-400 text-xs leading-tight">
-              Added <code>allow-pointer-lock</code> support. This allows your mouse to control the 3D ball in Slope without the cursor leaving the window.
-            </p>
           </div>
         </div>
       </div>

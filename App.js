@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import htm from 'htm';
 import { GAMES_DATA } from './constants.js';
@@ -31,7 +30,7 @@ const App = () => {
 
   // Tab masking logic
   useEffect(() => {
-    const originalTitle = "nex unblocked | Play Fun Games";
+    const originalTitle = "UNPLOCKED GAMES | Play Fun Games";
     const originalFavicon = "/favicon.ico"; // Fallback
     
     if (isMasked) {
