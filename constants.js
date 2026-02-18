@@ -1,4 +1,3 @@
-
 import React from 'react';
 import htm from 'htm';
 
@@ -6,29 +5,40 @@ const html = htm.bind(React.createElement);
 
 export const GAMES_DATA = [
   {
-    id: 'slope-v3',
+    id: 'gun-spin',
+    title: 'Gun Spin',
+    category: 'Action',
+    thumbnail: 'https://img.gamedistribution.com/50d154abb6c5483b847cbeea848e73ff-512x512.jpeg',
+    iframeUrl: 'https://html5.gamedistribution.com/rvvASMiM/50d154abb6c5483b847cbeea848e73ff/index.html?gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2h0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tLzUwZDE1NGFiYjZjNTQ4M2I4NDdjYmVlYTg0OGU3M2ZmLyIsInBhcmVudERvbWFpbiI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidG9wRG9tYWluIjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJoYXNJbXByZXNzaW9uIjp0cnVlLCJsb2FkZXJFbmFibGVkIjp0cnVlLCJob3N0IjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ2ZXJzaW9uIjoiMS41LjE4In0%253D',
+    mirrors: [
+      { name: 'Server 1 (Requested)', url: 'https://html5.gamedistribution.com/rvvASMiM/50d154abb6c5483b847cbeea848e73ff/index.html?gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2h0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tLzUwZDE1NGFiYjZjNTQ4M2I4NDdjYmVlYTg0OGU3M2ZmLyIsInBhcmVudERvbWFpbiI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidG9wRG9tYWluIjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJoYXNJbXByZXNzaW9uIjp0cnVlLCJsb2FkZXJFbmFibGVkIjp0cnVlLCJob3N0IjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ2ZXJzaW9uIjoiMS41LjE4In0%253D' }
+    ],
+    description: 'Shoot your gun to spin it and travel as far as possible! Upgrade your weapon and reach new milestones in this addictive arcade shooter.',
+    rating: 4.8,
+    themeColor: 'amber'
+  },
+  {
+    id: 'slope-v4',
     title: 'Slope',
     category: 'Action',
     thumbnail: 'https://play-lh.googleusercontent.com/FFrKIqKVpB9HMpaaF0HUc5Sza5W2sM8GFZGfkddU39xPcKCa4BYXQghoWVGlQGpaAA=w526-h296-rw',
-    // Using an active Google Proxy source
-    iframeUrl: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/bobydob/slope@master/slope.xml',
+    iframeUrl: 'https://kdata1.com/2020/05/slope/',
     mirrors: [
-      { name: 'Server 1 (Google Proxy)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/bobydob/slope@master/slope.xml' },
-      { name: 'Server 2 (Static)', url: 'https://kdata1.com/2020/05/slope/' },
-      { name: 'Server 3 (Direct)', url: 'https://slopegame.online/slope.embed' }
+      { name: 'Server 1 (Stable)', url: 'https://kdata1.com/2020/05/slope/' },
+      { name: 'Server 2 (Bypass)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/slope/slope.xml' }
     ],
     description: 'The ultimate speed game! Drive a ball down an infinite neon slope. Simple to play, hard to master.',
     rating: 4.9,
     themeColor: 'emerald'
   },
   {
-    id: '1v1-lol-v3',
+    id: '1v1-lol-v4',
     title: '1v1.LOL',
     category: 'Action',
     thumbnail: 'https://play-lh.googleusercontent.com/vH_fNia99Ias_jU2-DAs9jT4qE7N8X4Y9k-C9f6P=w526-h296-rw',
-    iframeUrl: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1921/id@main/1v1.xml',
+    iframeUrl: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/1v1-lol/1v1-lol.xml',
     mirrors: [
-      { name: 'Server 1 (Stealth)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1921/id@main/1v1.xml' },
+      { name: 'Server 1 (Proxy)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/1v1-lol/1v1-lol.xml' },
       { name: 'Server 2 (Direct)', url: 'https://1v1.lol' }
     ],
     description: 'Build and shoot in this competitive 3D battle royale. Practice your mechanics and outplay your opponents.',
@@ -36,28 +46,28 @@ export const GAMES_DATA = [
     themeColor: 'violet'
   },
   {
-    id: 'subway-surfers-v3',
+    id: 'subway-surfers-v4',
     title: 'Subway Surfers',
     category: 'Arcade',
     thumbnail: 'https://play-lh.googleusercontent.com/T0_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2=w526-h296-rw',
-    iframeUrl: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1921/id@main/ss.xml',
+    iframeUrl: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/subway-surfers/subway-surfers.xml',
     mirrors: [
-      { name: 'Google Server', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1921/id@main/ss.xml' },
-      { name: 'Mirror B', url: 'https://d3ca45s3v70m8n.cloudfront.net/games/subway-surfers/index.html' }
+      { name: 'Server 1 (Stealth)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/subway-surfers/subway-surfers.xml' },
+      { name: 'Server 2 (Cdn)', url: 'https://d3ca45s3v70m8n.cloudfront.net/games/subway-surfers/index.html' }
     ],
     description: 'Dash as fast as you can! Dodge the oncoming trains and escape from the grumpy Inspector.',
     rating: 4.7,
     themeColor: 'emerald'
   },
   {
-    id: 'retro-bowl-v3',
+    id: 'retro-bowl-v4',
     title: 'Retro Bowl',
     category: 'Sports',
     thumbnail: 'https://play-lh.googleusercontent.com/6_2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2_8y2=w526-h296-rw',
     iframeUrl: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html',
     mirrors: [
-      { name: 'Main (High Speed)', url: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html' },
-      { name: 'Mirror (Bypass)', url: 'https://cdn.jsdelivr.net/gh/677061/retro-bowl@main/index.html' }
+      { name: 'Server 1 (Kong)', url: 'https://game316009.konggames.com/gamez/0031/6009/live/index.html' },
+      { name: 'Server 2 (Stealth)', url: 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/r33drichards/r33drichards.github.io@master/retro-bowl/retro-bowl.xml' }
     ],
     description: 'Retro-style American football management. Lead your team to victory in this addictive pixel-art sports sim.',
     rating: 4.8,

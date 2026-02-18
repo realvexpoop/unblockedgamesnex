@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import htm from 'htm';
 import { ICONS } from '../constants.js';
@@ -46,6 +45,7 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
     iframe.style.height = '100%';
     iframe.referrerPolicy = 'no-referrer'; 
     iframe.src = currentUrl;
+    iframe.allow = "autoplay; fullscreen; pointer-lock";
     win.document.body.appendChild(iframe);
   };
 
@@ -152,6 +152,7 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
             height="100%"
             frameBorder="0"
             allowFullScreen
+            allow="autoplay; fullscreen; pointer-lock"
             referrerPolicy="no-referrer"
             style=${{ display: 'block' }}
             title=${game.title}
@@ -221,8 +222,8 @@ const GamePlayer = ({ game, onBack, onToggleFavorite, isFavorite }) => {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                <div className="bg-zinc-900/50 p-4 rounded-xl border border-zinc-800">
-                  <p className="text-white text-xs font-black uppercase mb-1">Server 1 (Best Choice)</p>
-                  <p className="text-zinc-500 text-[11px]">Server 1 uses <strong className="text-indigo-400">Google Proxy</strong> technology. It hides the game source from filters. If this fails, switch to Server 2 or 3.</p>
+                  <p className="text-white text-xs font-black uppercase mb-1">Mirror Switcher</p>
+                  <p className="text-zinc-500 text-[11px]">Use the <strong className="text-indigo-400">Mirror Switcher</strong> above to try alternative servers if the primary link is blocked or down.</p>
                </div>
                <div className="bg-zinc-900/50 p-4 rounded-xl border border-zinc-800">
                   <p className="text-white text-xs font-black uppercase mb-1">Try Cloak Mode</p>
